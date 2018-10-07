@@ -23,4 +23,31 @@ class SiteInfo(models.Model):
 
 
 class SEO(models.Model):
-    pass
+    """
+
+    Seo model. Contains all title and description tags content on the site
+
+    """
+    index_title = models.CharField(max_length=500, default='', verbose_name='title главной страницы')
+    index_desc = models.CharField(max_length=500, default='', verbose_name='description главной страницы')
+    beer_title = models.CharField(max_length=500, default='', verbose_name='title страницы пива')
+    beer_desc = models.CharField(max_length=500, default='', verbose_name='description тсраницы пива')
+    snacks_title = models.CharField(max_length=500, default='', verbose_name='title страницы снеков')
+    snacks_desc = models.CharField(max_length=500, default='', verbose_name='description страницы снеков')
+    detail_title = models.CharField(max_length=500, default='', verbose_name='title страницы товара')
+    detail_desc = models.CharField(max_length=500, default='', verbose_name='description страницы товара')
+    delivery_title = models.CharField(max_length=500, default='', verbose_name='title страницы доставки')
+    delivery_desc = models.CharField(max_length=500, default='', verbose_name='description страницы доставки')
+    about_title = models.CharField(max_length=500, default='', verbose_name='title о нас')
+    about_desc = models.CharField(max_length=500, default='', verbose_name='description о нас')
+    cart_title = models.CharField(max_length=500, default='', verbose_name='title страницы корзина')
+    cart_desc = models.CharField(max_length=500, default='', verbose_name='description страницы корзина')
+
+    class Meta:
+        verbose_name = 'Настройки SEO'
+        verbose_name_plural = 'Настройки SEO'
+
+    def __str__(self):
+        return 'Настройки SEO'
+
+
