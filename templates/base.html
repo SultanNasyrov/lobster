@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    {% block title %}
+        
+    {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        @font-face {
+            font-family: 'Bebas_bold';
+            src: url({% static 'fonts/BebasNeue Bold.otf' %});
+        }
+        @font-face {
+            font-family: 'Bebas_reg';
+            src: url({% static 'fonts/BebasNeue Regular.otf' %});
+        }
+        @font-face {
+            font-family: 'Bebas_book';
+            src: url({% static 'fonts/BebasNeue Book.otf' %});
+        }
+        @font-face {
+            font-family: 'Neris_semibold';
+            src: url({% static 'fonts/Neris-SemiBold.otf' %});
+        }
+        @font-face {
+            font-family: 'Neris_light';
+            src: url({% static 'fonts/Neris-Light.otf' %});
+        }
+        @font-face {
+            font-family: 'Roboto_Slab';
+            src: url({% static 'fonts/RobotoSlab-Light.ttf' %});
+        }
+        @font-face {
+            font-family: 'Roboto_reg';
+            src: url({% static 'fonts/RobotoSlab-Regular.ttf' %});
+        }
+    </style>
+
+    {% block css %}
+
+    {% endblock %}
+
+</head>
+<body>
+
+<nav class="navigation">
+    <div class="brand">
+        <img class="logo img-fluid" src="{{ info.logo.url }}" alt="">
+    </div>
+    <div class="links">
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'beer' %}">Пиво</a>
+        <a href="{% url 'snacks' %}">Закуски</a>
+        <a href="{% url 'delivery' %}">Доставка</a>
+        <a href="{% url 'about' %}">О нас</a>
+    </div>
+
+    <div class="cart">
+        <a href="{% url 'cart' %}">
+            <img class="cart-logo" src="{% static 'img/shopping-cart.svg' %}"
+                 alt="Корзина товаров в магазине крафтового разливного пива с бесплатной доставкой Kraft Lobster">
+            <span class="items">{{ items }}</span>
+        </a>
+
+        <div class="cart-items">
+            <span>Корзина покупателя</span>
+            <table class="table">
+            <thead>
+              <tr>
+                <th>Наименование</th>
+                <th>Цена</th>
+                <th>Кол</th>
+                <th>Сумма</th>
+              </tr>
+            </thead>
+            <tbody class='items-list'>
+                {% for item in cart %}
+                <tr>
+                    <th class='name'>{{ item.name }}</th>
+                    <th>{{ item.price }} &#8381;</th>
+                    <th>{{ item.quantity }} {{ item.unit }}</th>
+                    <th>{{ item.subtotal }} &#8381;</th>
+                </tr>
+
+                {% empty %}
+                <tr>
+                     <th>Корзина пуста...</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+            <span class="total">Итого: <span class="total-price">{{ total }}</span> &#8381;</span>
+            <a href="{% url 'clean' %}" class="clean">Очистить</a>
+            <a class="cart-btn" href="{% url 'cart' %}">Перейти к заказу</a>
+        </div>
+    </div>
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+{% block footer %}
+    <section class="footer">
+        <div class="footer-colomn">
+            <span>something</span>
+            <span>something</span>
+            <span>something</span>
+            <span>something</span>
+        </div>
+        <div class="footer-colomn">
+            <span>something</span>
+            <span>something</span>
+            <span>something</span>
+            <span>something</span>
+        </div>
+        <div class="footer-colomn">
+            <span>something</span>
+            <span>something</span>
+            <span>something</span>
+            <span>something</span>
+        </div>
+    </section>
+
+{% endblock %}
+
+<script src="{% static 'plugins/jquery.js' %}"></script>
+<script src="{% static 'plugins/gsap/TweenMax.min.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<script>
+    $.ajaxSetup({
+      data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+</script>
+{% block js %}
+
+{% endblock %}
+
+</body>
+</html>

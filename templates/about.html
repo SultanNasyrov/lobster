@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>О нас</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <h1>Информация о нас</h1>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock %}

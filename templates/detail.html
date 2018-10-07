@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>{{ product.name }}</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <div class="image-container">
+            <img class="img-fluid" src="{{ product.image.url }}" alt="">
+        </div>
+
+        <div class="description-container">
+            {% if type == 'beer' %}
+                <span class="name">{{ product.name }} ({{ product.fortress }}%)</span>
+                <span class="type">{{ product.beer_type }}/ {{ product.filtering_type }}</span>
+                <span class="country">{{ product.country }} {{ product.brewery }}</span>
+                <span class>{{ product.density }}</span>
+            {% else %}
+                <span>{{ product.name }}</span>
+            {% endif %}
+            <form class="volume" action="{% url 'add-item' %}" target-id="{{ product.id }}" target-type="{{ type }}">
+                {% csrf_token %}
+                <div>
+                    <span> - </span>
+                    {% if type == 'beer' %}
+                        <input class="number-field"  type="number" step="1" value="1">
+                        <span> + </span>
+                        <span>л</span>
+                    {% elif type == 'snack' and product.packing == False %}
+                        <input class="number-field"  type="number" step="1" value="1">
+                        <span> + </span>
+                        <span>шт</span>
+                    {% else %}
+                        <input class="number-field"  type="number" step="100" value="100">
+                        <span> + </span>
+                        <span>гр</span>
+                    {% endif %}
+
+                </div>
+                <input type="submit" class="cart-btn">
+            </form>
+
+            <p>{{ product.description }}</p>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/detail.js' %}"></script>
+{% endblock %}

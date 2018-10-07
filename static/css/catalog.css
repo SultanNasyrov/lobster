@@ -1,0 +1,148 @@
+.content{
+    margin-top: 70px;
+    padding: 1rem 3rem;
+}
+
+.snacks{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
+
+.beer-list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1rem;
+}
+
+.product{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.product-link, .product-link:hover{
+    text-decoration: none;
+}
+.product-image{
+    position: relative;
+}
+
+.best-badge{
+    position: absolute;
+    top: 2rem; right: 0;
+
+    padding: 0.2rem 1rem;
+
+    font-family: Bebas_reg;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    z-index: 1;
+
+    background-color: #1c7430;
+    color: white;
+}
+
+.product-caption{
+    padding: 0.5rem;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 3px;
+}
+
+.product .name{
+    font-family: 'Neris_semibold';
+    font-size: 1.1rem;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.product .type{
+    font-family: 'Roboto_Slab';
+    font-size: 0.8rem;
+
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.product .price-line{
+    color: rgba(221, 68, 92, 0.9);
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+.quantity-input{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.quantity-btn{
+    height: 2rem;
+    width: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 3px;
+
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.quantity-input input{
+    width: 3rem;
+    height: 2rem;
+
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    color: rgba(0, 0, 0, 0.5);
+
+    text-align: center;
+}
+
+.quantity-input button{
+    margin-left: 1rem;
+
+    background-color: rgba(221, 68, 92, 0.9);
+
+    border: none;
+}
+
+.cart-icon{
+    height: 20px;
+} 
+
+.footer{
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.footer-colomn{
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

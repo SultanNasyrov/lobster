@@ -1,0 +1,94 @@
+.cart-items{
+    opacity: 0;
+}
+
+
+/* ================== CONTENT ================== */
+.content{
+    margin-top: 70px;
+    padding: 1rem 3rem;
+}
+
+.section-header{
+    display: flex;
+    justify-content: center;
+}
+
+.section-header h3{
+    font-family: Bebas_reg;
+}
+
+
+/* ================== CART TABLE ================== */
+.table-container{
+    position: relative;
+
+    min-height: 300px;
+}
+
+.quantity-cell{
+    display: flex;
+}
+
+.quantity-btn{
+    display: block;
+    background-color: red;
+    color: white;
+
+    cursor: pointer;
+    
+    height: 2rem;
+    width: 2rem;
+}
+
+.table-caption{
+    position: absolute;
+    right: 3rem; bottom: 3rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.order-btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/* ================== ORDER LAYOUT ================== */
+.order-layout{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 200;
+
+    background-color: rgba(0, 0, 0, 0.6)
+}
+
+.name-input{
+    text-transform: capitalize;
+}
+
+.footer{
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.footer-colomn{
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

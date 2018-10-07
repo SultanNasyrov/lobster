@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Корзина</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="content">
+
+
+    	<div class="section-header">
+    		<h3>Корзина покупателя</h3>
+    	</div>
+
+    	<div class="table-container">
+
+
+    		<table class="table cart-table">
+
+			    <thead>
+			        <tr>
+			            <th>Наименование</th>
+                        <th>Цена</th>
+			            <th class="quantity-header" url="{% url 'change-quantity' %}">Количество</th>
+			            <th>Общая</th>
+			            <th><img src="{% static 'img/rubbish-bin.svg' %}"
+                             alt="Иконка удаления товара из корзины в магазине разливного и крафтового
+                             пива с бесплатной доставкой Kraft Lobster" style="height: 16px;">
+                        </th>
+			        </tr>
+			    </thead>
+
+			    <tbody>
+                {% for item in cart %}
+
+                      <tr class="cart-line">
+                          {% if item.unit == 'гр' or item.unit == 'шт' %}
+                              <th><a href="{% url 'snack_detail' item.id %}">{{ item.name }}</a></th>
+                          {% else %}
+                              <th><a href="{% url 'beer_detail' item.id %}">{{ item.name }}</a></th>
+                          {% endif %}
+                          <th>{{ item.price }} р</th>
+                          <th class="quantity-cell">
+                              <span class="decrease quantity-btn">-</span>
+                              <span class='quantity' name="{{ item.name }}">{{ item.quantity }}</span>
+                              <span class="increase quantity-btn">+</span>
+                              <span class="unit">{{ item.unit }}</span>
+                          </th>
+                          <th><span class="subtotal">{{ item.subtotal }}</span>р</th>
+                          <th><a name="{{ item.name }}" class="delete" href="{% url 'delete-item' %}">
+                              <img src="{% static 'img/rubbish-bin.svg' %}"
+                                   alt="Иконка удаления товара из корзины в магазине разливного и крафтового
+                                    пива с бесплатной доставкой Kraft Lobster" style="height: 16px;">
+                                </a>
+                          </th>
+			      	</tr>
+                {% empty %}
+                    <tr>
+                        <th><span>Корзина пуста...</span></th>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <div class="table-caption">
+                <span class="total">Итого: <span class="total-price">{{ total }}</span> p</span>
+                <a class='clean' href="{% url 'clean' %}">очистить корзину</a>
+            </div>
+
+    	</div>
+        <div class="order-btn-container">
+            <button class='order-btn'>оформить заказ</button>
+        </div>
+
+
+
+    	<div class="order-layout">
+    		<form class='cart-form' action="{% url 'order' %}">
+    			<span class='close'>x</span>
+    			<input class='name-input' required type="text" placeholder='Введите имя...'>
+    			<input class='phone-input' required type="tel" placeholder="+7 (900) 000-0000">
+    			<input class='order' type="submit" value="Отправить">
+    		</form>
+    	</div>
+    	
+    </section>
+{% endblock %}
+
+{% block js %}
+	<script src="{% static "plugins/masked/jquery.maskedinput.js" %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}
+

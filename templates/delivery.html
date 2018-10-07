@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/delivery.css' %}">
+{% endblock %}
+
+{% block title %}
+    <title>Информация о доставке</title>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Здесь будет информация о доставке и оплате</h1>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/delivery.js' %}"></script>
+{% endblock %}

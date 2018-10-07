@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <title>Lobster Kraft - бесплатная доставка разливного, крафтового пива и закусок в г. Казань</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <style>
+        .banner .text::after{
+            content: "";
+            background: url({% static 'img/purple-fabric-tone.png' %});
+            opacity: 0.6;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<section class="banner">
+    <div class="image">
+        <img class="img-fluid" src="{{ info.banner.url }}" alt="">
+    </div>
+    <div class="text">
+        <h1 class="tagline">{{ info.tagline }}</h1>
+        <h2>{{ info.tagline_2 }}</h2>
+        <button>магазин</button>
+    </div>
+</section>
+
+<section class="best-beer">
+    <div class="section-header">
+        <h2>Лучшее пиво</h2>
+    </div>
+    <div class="products">
+        {% for beer in beers %}
+            <div class="product">
+                <a href="{% url 'beer_detail' beer.id %}" class="product-link">
+                    <div class="product-image">
+                        {% if beer.best_seller == True %}
+                            <span class="best-badge">Хит</span>
+                        {% endif %}
+                        <img class="img-fluid" src="{{ beer.image.url }}"
+                             alt="Заказать разливное крафтовое пиво {{ beer.name }} с доставкой в Казани">
+                    </div>
+                    <div class="product-caption">
+                        <span class="name">{{ beer.name }} ({{ beer.fortress }}%)</span>
+                        <span class="type">{{beer.beer_type }}/{{ beer.filtering_type }}</span>
+                        <span class="price-line"><span class="price">{{ beer.price }}</span>&#8381;</span>
+
+                        <div class="quantity-input">
+                            <span class="decrease quantity-btn">-</span>
+                            <input price="{{ beer.price }}" class="number" type="number" 
+                                    step="1" value="1" max="15" onkeypress="return false">
+                            <span class="increase quantity-btn">+</span>
+                            <button product-type="beer" product-id="{{ beer.id }}" 
+                                url="{% url 'add-item' %}" class='to-cart'>
+                                <img class="cart-icon" src="{% static "img/shopping-cart-black-shape.svg" %}"
+                                     alt="Иконка корзины для заказа в магазине крафтового и разливного пива с бесплатной доставкой Kraft Lobster"
+                                     title="Добавить в корзину">
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        
+    </div>
+</section>
+
+<section class="best-snacks">
+    <div class="section-header">
+        <h2>Лучшие закуски</h2>
+    </div>
+    <div class="products">
+        {% for snack in snacks %}
+            <div class="product">
+                <a class='product-link' href="{% url 'snack_detail' snack.id %}">
+                    <div class="product-image">
+                        {% if snack.best_seller == True %}
+                            <span class="best-badge">Хит</span>
+                        {% endif %}
+                        <img class="img-fluid" src="{{ snack.image.url }}"
+                             alt="Купить {{ snack.name }}. Закуска к разливному пиву с доставкой в Казани">
+                    </div>
+                    <div class="product-caption">
+                        <span class="name">{{ snack.name }}</span>
+                        <span class="price-line"><span class="price">{{ snack.price }}</span>&#8381;</span>
+                        <div class="quantity-input">
+                        {% if snack.packing == True %}
+                            <span class="decrease quantity-btn">-</span>
+                            <input price="{{ snack.price }}" class="weight" type="number" 
+                                    step="100" value="100" min="100" max="1500" onkeypress="return false">
+                            <span class="increase quantity-btn">+</span>
+                            <span>гр</span>
+                        {% else %}
+                            <span class="decrease quantity-btn">-</span>
+                            <input price="{{ snack.price }}" class="number" type="number" 
+                                    step="1" value="1" max="15" onkeypress="return false">
+                            <span class="increase quantity-btn">+</span>
+                            <span>шт</span>                  
+                        {% endif %}
+                            <button product-type="snack" product-id='{{ snack.id }}' 
+                        url="{% url 'add-item' %}" class='to-cart'>
+                                <img class='cart-icon' src="{% static "img/shopping-cart-black-shape.svg" %}" 
+                                alt="Иконка корзины для заказа в магазине крафтового и разливного пива с бесплатной доставкой Kraft Lobster"
+                                title="Добавить в корзину">
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="map-container">
+    <div class="section-header">
+        <h2>Мы находимся</h2>
+    </div>
+    <div class="map">
+        <h3>Map</h3>
+    </div>
+</section>
+
+{% endblock %}
+
+
+{% block js %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
