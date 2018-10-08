@@ -41,7 +41,7 @@
     <div class="products">
         {% for beer in beers %}
             <div class="product">
-                <a href="{% url 'beer_detail' beer.id %}" class="product-link">
+                <a href="{{ beer.get_absolute_url }}" class="product-link">
                     <div class="product-image">
                         {% if beer.best_seller == True %}
                             <span class="best-badge">Хит</span>
@@ -81,7 +81,7 @@
     <div class="products">
         {% for snack in snacks %}
             <div class="product">
-                <a class='product-link' href="{% url 'snack_detail' snack.id %}">
+                <a class='product-link' href="{{ snack.get_absolute_url }}">
                     <div class="product-image">
                         {% if snack.best_seller == True %}
                             <span class="best-badge">Хит</span>

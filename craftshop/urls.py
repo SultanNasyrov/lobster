@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import path
 from .views import (index, beer_page, snacks_page, delivery,
                     about, beer_detail, snack_detail, snack_category)
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class BeerManager(models.Manager):
@@ -56,6 +57,10 @@ class Beer(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        """returns absolute url for beer detail view"""
+        return reverse('beer_detail', args=[str(self.id)])
+
 
 class SnackCategory(models.Model):
     """Snack category model"""
@@ -97,6 +102,10 @@ class Snack(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        """returns absolute url for beer detail view"""
+        return reverse('snack_detail', args=[str(self.id)])
 
 
 class Order(models.Model):
