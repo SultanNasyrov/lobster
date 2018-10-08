@@ -2,7 +2,14 @@
 {% load staticfiles %}
 
 {% block title %}
-    <title>Каталог продукции</title>
+    {% if type == 'beer' %}
+        <title>{{ seo.beer_title }}</title>
+        <meta name="descritpion" content="{{ seo.catalog_desc }}">
+    {% else %}
+        <title>{{ seo.snack_title }}</title>
+        <meta name="descritpion" content="{{ seo.snack_desc }}">
+    {% endif %}
+
 {% endblock %}
 
 {% block css %}

@@ -2,7 +2,8 @@
 {% load staticfiles %}
 
 {% block title %}
-    <title>Корзина</title>
+    <title>{{ seo.cart_title }}</title>
+    <meta name="descritpion" content="{{ seo.cart_desc }}">
 {% endblock %}
 
 {% block css %}

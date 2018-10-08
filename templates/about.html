@@ -2,7 +2,8 @@
 {% load staticfiles %}
 
 {% block title %}
-    <title>{{ seo. }}</title>
+    <title>{{ seo.about_title }}</title>
+    <meta name="description" content="{{ seo.about_desc }}">
 {% endblock %}
 
 {% block css %}

@@ -2,7 +2,8 @@
 {% load staticfiles %}
 
 {% block title %}
-    <title>Lobster Kraft - бесплатная доставка разливного, крафтового пива и закусок в г. Казань</title>
+    <title>{{ seo.index_title }}</title>
+    <meta name="descritpion" content="{{ seo.index_desc }}">
 {% endblock %}
 
 {% block css %}
@@ -39,7 +40,7 @@
         <h2>Лучшее пиво</h2>
     </div>
     <div class="products">
-        {% for beer in beers %}
+        {% for beer in beer %}
             <div class="product">
                 <a href="{{ beer.get_absolute_url }}" class="product-link">
                     <div class="product-image">
@@ -123,6 +124,7 @@
 <section class="map-container">
     <div class="section-header">
         <h2>Мы находимся</h2>
+        <p>{% lorem 1 p %}</p>
     </div>
     <div class="map">
         <h3>Map</h3>
