@@ -1,3 +1,12 @@
 from django.contrib import admin
+from .models import SiteInfo, SEO
 
-# Register your models here.
+
+@admin.register(SiteInfo)
+class SiteInfoAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(SEO)
+class SeoAdmin(admin.ModelAdmin):
+    pass

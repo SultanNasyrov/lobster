@@ -65,8 +65,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.context_processor.cart',
-                'craftshop.context_processor.info'
+                'cart.context_processors.cart',
+                'settings.context_processors.seo'
+                'settings.context_processors.info'
             ],
         },
     },
