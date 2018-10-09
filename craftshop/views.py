@@ -4,10 +4,10 @@ from .models import Beer, Snack, SnackCategory
 
 def index(request):
     """Index view function returns index template with beer and snacks best sellers in context"""
-    beers = Beer.display.filter(best_seller=True)[:10]
+    beer = Beer.display.filter(best_seller=True)[:10]
     snacks = Snack.display.filter(best_seller=True)[:10]
     context = {
-        'beers': beers,
+        'beer': beer,
         'snacks': snacks,
     }
     return render(request, 'index.html', context)
@@ -15,11 +15,11 @@ def index(request):
 
 def beer_page(request):
     """Return rendered catalog page with all beer available"""
-    beers = Beer.display.all()
+    beer = Beer.display.all()
     type = 'beer'
 
     context = {
-        'products': beers,
+        'products': beer,
         'type': type,
     }
     return render(request, 'catalog.html', context)

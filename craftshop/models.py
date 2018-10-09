@@ -33,8 +33,8 @@ class Beer(models.Model):
 
     """
     filtering_types = (
-        ('f', 'Фильтрованное'),
-        ('n', 'Нефильтрованное'),
+        ('Фильтрованоое', 'f'),
+        ('Нефильтрованное', 'n'),
     )
     image = models.FileField(upload_to='beer_images/', verbose_name='Изображение')
     available = models.BooleanField(default=True, verbose_name='ОТображается на сайте')
