@@ -13,6 +13,7 @@ class SiteInfo(models.Model):
     phone_number = models.CharField(max_length=20, default='', verbose_name='Номер телефона')
     address = models.CharField(max_length=500, default='', verbose_name='Адрес')
     insta_link = models.URLField(default='', verbose_name='Ссылка на инстаграм')
+    map = models.TextField(default='', verbose_name='Html код карты(embed)')
 
     class Meta:
         verbose_name = 'Главная'

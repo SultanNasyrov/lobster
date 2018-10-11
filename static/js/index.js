@@ -1,9 +1,6 @@
 $(document).ready(function () {
-    $('input').ready(function () {
-        if ($(this).hasClass('number')){
-            this.val('1 k')
-        }
-    });
+
+    // TODO interactive product cart elements
     $('.quantity-btn').click(function (e){
         e.preventDefault();
         var caption = $(this).closest('.product-caption');
@@ -39,8 +36,8 @@ $(document).ready(function () {
     $('.product').mouseover(function () {
         var product = $(this);
         TweenMax.to(product, 0.5, {
-            background: 'linear-gradient(rgb(249, 246, 249), rgb(243, 244, 249), rgb(249, 246, 249))',
-            boxShadow: '0 5px 12px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.23)',
+            background: 'linear-gradient(#FAFAFA, #FDFDFD, #FAFAFA)',
+            boxShadow: '0 8px 16px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.23)',
             scale: 1.05,
             ease: Power1.easeInOut,
             zIndex: 50

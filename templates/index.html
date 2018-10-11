@@ -45,7 +45,10 @@
                 <a href="{{ beer.get_absolute_url }}" class="product-link">
                     <div class="product-image">
                         {% if beer.best_seller == True %}
-                            <span class="best-badge">Хит</span>
+                            <span class="best-badge">
+                                <img class="badge-img" src="{% static 'img/fire-symbol.svg' %}" alt="">
+                                Хит
+                            </span>
                         {% endif %}
                         <img class="img-fluid" src="{{ beer.image.url }}"
                              alt="Заказать разливное крафтовое пиво {{ beer.name }} с доставкой в Казани">
@@ -58,7 +61,7 @@
                         <div class="quantity-input">
                             <span class="decrease quantity-btn">-</span>
                             <input price="{{ beer.price }}" class="number" type="number" 
-                                    step="1" value="1 л" max="15" onkeypress="return false">
+                                    step="1" value="1" max="15" onkeypress="return false">
                             <span class="increase quantity-btn">+</span>
                             <button product-type="beer" product-id="{{ beer.id }}" 
                                 url="{% url 'add-item' %}" class='to-cart'>
@@ -111,15 +114,15 @@
                         <span class="name">{{ snack.name }}</span>
                         <span class="price-line"><span class="price">{{ snack.price }}</span>руб</span>
                         <div class="quantity-input">
-                        {% if snack.packing == True %}
+                        {% if snack.packed == True %}
                             <span class="decrease quantity-btn">-</span>
                             <input price="{{ snack.price }}" class="weight" type="number" 
-                                    step="100" value="100 гр" min="100" max="1500" onkeypress="return false">
+                                    step="100" value="100" min="100" max="1500" onkeypress="return false">
                             <span class="increase quantity-btn">+</span>
                         {% else %}
                             <span class="decrease quantity-btn">-</span>
                             <input price="{{ snack.price }}" class="number" type="number" 
-                                    step="1" value="1 шт" max="15" onkeypress="return false">
+                                    step="1" value="1" max="15" onkeypress="return false">
                             <span class="increase quantity-btn">+</span>
                         {% endif %}
                             <button product-type="snack" product-id='{{ snack.id }}' 
@@ -139,10 +142,9 @@
 <section class="map-container">
     <div class="section-header">
         <h2>Мы находимся</h2>
-        <p>{% lorem 1 p %}</p>
     </div>
     <div class="map">
-        <h3>Map</h3>
+        {{ info.map |safe }}
     </div>
 </section>
 
