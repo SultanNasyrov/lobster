@@ -62,20 +62,6 @@ class Beer(models.Model):
         return reverse('beer_detail', args=[str(self.id)])
 
 
-class SnackCategory(models.Model):
-    """Snack category model"""
-
-    name = models.CharField(max_length=50, verbose_name='Название', default='')
-
-    class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
-        ordering = ['name']
-
-    def __str__(self):
-        return self.name
-
-
 class Snack(models.Model):
     """Contains info about snack instance
 
@@ -87,7 +73,6 @@ class Snack(models.Model):
     image = models.ImageField(upload_to='snacks/', verbose_name='Изображение')
     available = models.BooleanField(default=True, verbose_name='Доступен на сайте')
     best_seller = models.BooleanField(default=False, verbose_name='Выводить на главный экран')
-    category = models.ForeignKey('SnackCategory', on_delete=models.DO_NOTHING)
     packed = models.BooleanField(default=False, verbose_name='На развес')
     name = models.CharField(max_length=250, default='', verbose_name='Название')
     price = models.PositiveIntegerField(default=1, verbose_name='Цена')
@@ -135,7 +120,6 @@ class OrderItem(models.Model):
     Order item
 
     """
-
     order = models.ForeignKey('Order', on_delete=models.CASCADE)
     name = models.CharField(max_length=500, default='', verbose_name='Наименование продукции')
     price = models.PositiveIntegerField(default=0, verbose_name='Цена товара')

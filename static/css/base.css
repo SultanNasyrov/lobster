@@ -32,10 +32,10 @@ html{
 }
 
 .links{
-    grid-column: 2 / span 3;
+    grid-column: 3 / span 2;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 

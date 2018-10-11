@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    $('input').ready(function () {
+        if ($(this).hasClass('number')){
+            this.val('1 k')
+        }
+    });
     $('.quantity-btn').click(function (e){
         e.preventDefault();
         var caption = $(this).closest('.product-caption');
@@ -30,7 +35,25 @@ $(document).ready(function () {
                 caption.find('.price').html(price);
             }
         }
-    })
+    });
+    $('.product').mouseover(function () {
+        var product = $(this);
+        TweenMax.to(product, 0.5, {
+            backgroundColor: 'rgb(255, 219, 200)',
+            scale: 1.1,
+            ease: Bounce.easeInOut,
+            zIndex: 50
+        })
+    });
+    $('.product').mouseleave(function () {
+        var product = $(this);
+        TweenMax.to(product, 0.5, {
+            backgroundColor: 'transparent',
+            scale: 1.0,
+            ease: Power1.easeInOut,
+            zIndex: 30
+        })
+    });
     $('.to-cart').click(function(e){
         e.preventDefault();
         var data = {};

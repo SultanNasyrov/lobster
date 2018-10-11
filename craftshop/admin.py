@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Beer, Snack, SnackCategory, Order, OrderItem
+from .models import Beer, Snack, Order, OrderItem
+# TODO write comments in admin page
+# TODO customize admin page
+# TODO customize visual admin page
 
 
 @admin.register(Beer)
@@ -9,11 +12,6 @@ class BeerAdmin(admin.ModelAdmin):
 
 @admin.register(Snack)
 class SnackAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(SnackCategory)
-class SnackCategoryAdmin(admin.ModelAdmin):
     pass
 
 

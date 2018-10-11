@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Beer, Snack, SnackCategory
+from .models import Beer, Snack
 
 
 def index(request):
@@ -28,27 +28,11 @@ def beer_page(request):
 def snacks_page(request):
     """Returns rendered catalog with all snacks available"""
     snacks = Snack.display.all()
-    categories = SnackCategory.objects.all()
     type = 'snacks'
 
     context = {
         'products': snacks,
         'type': type,
-        'categories': categories,
-    }
-    return render(request, 'catalog.html', context)
-
-
-def snack_category(request, id):
-    """Lists snacks by target category and returns rendered catalog template"""
-    target = SnackCategory.objects.get(id=id).name
-    snacks = Snack.display.filter(category=id)
-    categories = SnackCategory.objects.all()
-    type = 'snacks'
-    context = {
-        'products': snacks,
-        'type': type,
-        'categories': categories,
     }
     return render(request, 'catalog.html', context)
 
