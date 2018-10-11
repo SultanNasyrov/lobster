@@ -1,8 +1,13 @@
 from django.contrib import admin
-from .models import Beer, Snack, Order, OrderItem
+from .models import Beer, Snack, Order, OrderItem, Combo
 # TODO write comments in admin page
 # TODO customize admin page
 # TODO customize visual admin page
+
+
+@admin.register(Combo)
+class CombeAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(Beer)

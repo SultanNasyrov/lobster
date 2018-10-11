@@ -1,14 +1,16 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Beer, Snack
+from .models import Beer, Snack, Combo
 
 
 def index(request):
     """Index view function returns index template with beer and snacks best sellers in context"""
     beer = Beer.display.filter(best_seller=True)[:10]
     snacks = Snack.display.filter(best_seller=True)[:10]
+    combos = Combo.objects.all()[:3]
     context = {
         'beer': beer,
         'snacks': snacks,
+        'combos': combos,
     }
     return render(request, 'index.html', context)
 

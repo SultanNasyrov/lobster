@@ -74,6 +74,23 @@
         
     </div>
 </section>
+    
+<section class="combos">
+    <div class="section-header">
+        <h2>Комбо наборы</h2>
+    </div>
+    <div class="combos-container">
+        {% for combo in combos %}
+            <div class="combo">
+                <img src="{{ combo.image.url }}" alt="">
+                <span>{{ combo.name }}</span>
+                <span>{{ combo.ingredients }}</span>
+                <span>{{ combo.price }} руб</span>
+            </div>
+        {% endfor %}
+
+    </div>
+</section>
 
 <section class="best-snacks">
     <div class="section-header">

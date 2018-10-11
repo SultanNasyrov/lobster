@@ -88,6 +88,8 @@
 
 .product{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 3px;
+    overflow: hidden;
     background-color: rgb(255, 252, 255);
 }
 
@@ -127,7 +129,7 @@
 
 .product .name{
     font-family: 'Neris_semibold';
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
 
     color: rgba(0, 0, 0, 0.6);
@@ -142,7 +144,8 @@
 
 .product .price-line{
     color: rgba(221, 68, 92, 0.9);
-    font-weight: 600;
+    font-family: 'Neris_semibold', sans-serif;
+    font-size: 0.8rem;
     line-height: 2rem;
 }
 
@@ -194,6 +197,18 @@
 
 .cart-icon{
     height: 20px;
+}
+
+.combos-container{
+    padding: 1rem 3rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.combo{
+    display: flex;
+    flex-direction: column;
 }
 
 

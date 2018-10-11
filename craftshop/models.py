@@ -25,6 +25,26 @@ class SnackManager(models.Manager):
         return super().get_queryset().filter(available=True)
 
 
+class Combo(models.Model):
+    """
+
+    Combo contains info about available combo.
+
+    """
+    image = models.ImageField(upload_to='combos/', verbose_name='Изображение')
+    name = models.CharField(max_length=500, default='', verbose_name='Название')
+    ingredients = models.CharField(max_length=1000, default='', verbose_name='Состав')
+    price = models.PositiveIntegerField(default=0, verbose_name='Цена')
+    description = models.TextField(default='')
+
+    class Meta:
+        verbose_name = 'Комбо'
+        verbose_name_plural = 'Комбо'
+
+    def __str__(self):
+        return self.name
+
+
 class Beer(models.Model):
     """Contains all info about beer instance.
 
@@ -32,16 +52,12 @@ class Beer(models.Model):
     best seller means that product is displayed on the index page in best sellers block
 
     """
-    filtering_types = (
-        ('Фильтрованоое', 'f'),
-        ('Нефильтрованное', 'n'),
-    )
     image = models.FileField(upload_to='beer_images/', verbose_name='Изображение')
     available = models.BooleanField(default=True, verbose_name='ОТображается на сайте')
     best_seller = models.BooleanField(default=False, verbose_name='Выводить на главный экран')
     name = models.CharField(max_length=200, default='', verbose_name='Название')
     beer_type = models.CharField(max_length=200, default='', verbose_name='Светлое/темное')
-    filtering_type = models.CharField(max_length=200, choices=filtering_types, default='f', verbose_name='Фильтрация')
+    filtering_type = models.CharField(max_length=200, default='Фильтрованное', verbose_name='Фильтрация')
     fortress = models.FloatField(default=1.0, verbose_name='Крепость(%)')
     price = models.PositiveIntegerField(default=0, verbose_name='Цена')
     country = models.CharField(max_length=200, default='', verbose_name='Страна производитель')
