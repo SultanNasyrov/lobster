@@ -88,6 +88,7 @@
 
 .product{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: rgb(255, 252, 255);
 }
 
 .product-link, .product-link:hover{
