@@ -7,8 +7,12 @@ class SiteInfo(models.Model):
     """
 
     logo = models.FileField(upload_to='main/', verbose_name='Логотип')
-    tagline = models.CharField(max_length=750, verbose_name='Слоган', default='')
-    tagline_2 = models.CharField(max_length=500, verbose_name='Слоган 2', default='')
+    logo_text1 = models.CharField(max_length=250, default='', verbose_name='Текст лого 1',
+                                  help_text='Верхняя строчка текста в логотипе')
+    logo_text2 = models.CharField(max_length=250, default='', verbose_name='Текст лого 2',
+                                  help_text='Нижняя строчка текста в логотипе')
+    tagline = models.CharField(max_length=750, verbose_name='Заголовок(h1)', default='')
+    tagline_2 = models.CharField(max_length=500, verbose_name='Заголовок(h2)', default='')
     banner = models.ImageField(upload_to='main/', verbose_name='Баннер', default='')
     phone_number = models.CharField(max_length=20, default='', verbose_name='Номер телефона')
     address = models.CharField(max_length=500, default='', verbose_name='Адрес')

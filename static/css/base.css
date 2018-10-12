@@ -20,9 +20,8 @@ html{
 }
 
 .brand{
-    cursor: pointer;
-
     display: flex;
+    cursor: pointer;
 }
 
 .logo{
@@ -30,11 +29,32 @@ html{
     height: 4rem;
 }
 
+.logotext{
+    display: flex;
+    margin-left: 0.5rem;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+#logotext1{
+    font-family: Roboto_Slab, serif;
+    font-size: 1.1rem;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+#logotext2{
+    font-family: Roboto_Slab, serif;
+    font-size: 0.8rem;
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
 .links{
-    grid-column: 3 / span 2;
+    grid-column: 2 / span 2;
 
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
@@ -51,15 +71,26 @@ html{
     color: rgba(0, 0, 0, 0.6);
 }
 
-.links a{
-    padding: 0.3rem 0.6rem;
+.phone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    border-radius: 2px;
-    border: 1px solid rgba(0, 0, 0, 0.4);
+.phone img{
+    height: 1rem;
+}
+
+.phone span{
+    font-family: Neris_semibold, sans-serif;
+    font-size: 0.9rem;
+
+    color: rgba(221, 68, 92, 0.9);
 }
 
 .cart{
     position: relative;
+    grid-column: 5;
 
     display: flex;
     flex-direction: column;
@@ -69,12 +100,12 @@ html{
 
 .cart a:first-child{
     display: flex;
-
 }
 
 .cart-logo{
     height: 20px;
     cursor: pointer;
+    margin-right: 0.3rem;
 }
 
 .items{

@@ -53,6 +53,10 @@
 <nav class="navigation">
     <div class="brand">
         <img class="logo img-fluid" src="{{ info.logo.url }}" alt="">
+        <div class="logotext">
+            <h2 id="logotext1">{{ info.logo_text1 }}</h2>
+            <h1 id="logotext2">{{ info.logo_text2 }}</h1>
+        </div>
     </div>
     <div class="links">
         <a href="{% url 'index' %}">Главная</a>
@@ -60,6 +64,10 @@
         <a href="{% url 'snacks' %}">Закуски</a>
         <a href="{% url 'delivery' %}">Доставка</a>
         <a href="{% url 'about' %}">О нас</a>
+    </div>
+    <div class="phone">
+        <img src="{% static 'img/mobile-phone.svg' %}" alt="">
+        <span>{{ info.phone_number }}</span>
     </div>
 
     <div class="cart">
