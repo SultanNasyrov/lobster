@@ -29,9 +29,7 @@
         <img class="img-fluid" src="{{ info.banner.url }}" alt="">
     </div>
     <div class="text">
-        <h1 class="tagline">{{ info.tagline }}</h1>
-        <h2>{{ info.tagline_2 }}</h2>
-        <button>магазин</button>
+        <h2 class="tagline">{{ info.tagline }}</h2>
     </div>
 </section>
 
@@ -62,6 +60,7 @@
                             <span class="decrease quantity-btn">-</span>
                             <input price="{{ beer.price }}" class="number" type="number" 
                                     step="1" value="1" max="15" onkeypress="return false">
+                            <span class="unit">л</span>
                             <span class="increase quantity-btn">+</span>
                             <button product-type="beer" product-id="{{ beer.id }}" 
                                 url="{% url 'add-item' %}" class='to-cart'>
@@ -118,11 +117,13 @@
                             <span class="decrease quantity-btn">-</span>
                             <input price="{{ snack.price }}" class="weight" type="number" 
                                     step="100" value="100" min="100" max="1500" onkeypress="return false">
+                            <span class="unit">гр</span>
                             <span class="increase quantity-btn">+</span>
                         {% else %}
                             <span class="decrease quantity-btn">-</span>
                             <input price="{{ snack.price }}" class="number" type="number" 
                                     step="1" value="1" max="15" onkeypress="return false">
+                            <span class="unit">шт</span>
                             <span class="increase quantity-btn">+</span>
                         {% endif %}
                             <button product-type="snack" product-id='{{ snack.id }}' 

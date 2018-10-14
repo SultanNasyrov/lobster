@@ -1,8 +1,6 @@
 from django.db import models
 from django.urls import reverse
 
-# TODO templates and static folder cleaning
-
 
 class BeerManager(models.Manager):
     """

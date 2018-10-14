@@ -41,13 +41,13 @@ html{
     font-family: Roboto_Slab, serif;
     font-size: 1.1rem;
 
-    color: rgba(0, 0, 0, 0.6);
+    color: #050505;
 }
 #logotext2{
     font-family: Roboto_Slab, serif;
     font-size: 0.8rem;
 
-    color: rgba(0, 0, 0, 0.5);
+    color: #050505;
 }
 
 .links{
@@ -62,13 +62,13 @@ html{
 .links a, .links a:hover{
     margin-right: 1rem;
 
-    font-family: 'Neris_semibold';
+    font-family: 'Neris_semibold', sans-serif;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.02rem;
     text-decoration: none;
 
-    color: rgba(0, 0, 0, 0.6);
+    color: #050505;
 }
 
 .phone{
@@ -100,6 +100,22 @@ html{
 
 .cart a:first-child{
     display: flex;
+}
+
+.add-popup{
+    display: none;
+
+    margin-right: 0.5rem;
+    padding: 0.3rem 0.5rem;
+
+    border-radius: 3px;
+
+    font-family: 'Neris_semibold', sans-serif;
+    font-size: 0.5rem;
+    text-transform: uppercase;
+
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(221, 68, 92, 0.9);
 }
 
 .cart-logo{
@@ -148,7 +164,7 @@ html{
 
 .cart-items > span:first-child{
 
-    font-family: 'Neris_semibold';
+    font-family: 'Neris_semibold', sans-serif;
     font-size: 1.4rem;
     text-align: center;
     line-height: 3rem;
@@ -157,19 +173,19 @@ html{
 }
 
 .cart-items thead{
-    font-family: 'Roboto_reg';
+    font-family: 'Roboto_reg', serif;
     font-size: 0.9rem;
 }
 
 .cart-items tbody{
-    font-family: 'Roboto_Slab';
+    font-family: 'Roboto_Slab', serif;
     font-size: 0.8rem;
 }
 
 .total{
     align-self: flex-end;
 
-    font-family: 'Neris_semibold';
+    font-family: 'Neris_semibold', sans-serif;
     font-size: 1.2rem;
     color: rgba(221, 68, 92, 0.9);
 }
