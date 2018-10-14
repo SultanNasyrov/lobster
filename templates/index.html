@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+TODO manage all colours
+
 {% block title %}
     <title>{{ seo.index_title }}</title>
     <meta name="descritpion" content="{{ seo.index_desc }}">
@@ -104,7 +106,10 @@
                 <a class='product-link' href="{{ snack.get_absolute_url }}">
                     <div class="product-image">
                         {% if snack.best_seller == True %}
-                            <span class="best-badge">Хит</span>
+                            <span class="best-badge">
+                                <img class="badge-img" src="{% static 'img/fire-symbol.svg' %}" alt="">
+                                Хит
+                            </span>
                         {% endif %}
                         <img class="img-fluid" src="{{ snack.image.url }}"
                              alt="Купить {{ snack.name }}. Закуска к разливному пиву с доставкой в Казани">

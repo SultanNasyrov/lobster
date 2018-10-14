@@ -22,10 +22,13 @@
         <div class="beer-list">
             {% for beer in products %}
                 <div class="product">
-                    <a href="{% url 'beer_detail' beer.id %}" class="product-link">
+                    <a href="{{ beer.get_absolute_url }}" class="product-link">
                         <div class="product-image">
                             {% if beer.best_seller == True %}
-                                <span class="best-badge">Хит</span>
+                                <span class="best-badge">
+                                    <img class="badge-img" src="{% static 'img/fire-symbol.svg' %}" alt="">
+                                    Хит
+                                </span>
                             {% endif %}
                             <img class="img-fluid" src="{{ beer.image.url }}"
                                  alt="Заказать разливное крафтовое пиво {{ beer.name }} с доставкой в Казани">
@@ -33,16 +36,19 @@
                         <div class="product-caption">
                             <span class="name">{{ beer.name }} ({{ beer.fortress }}%)</span>
                             <span class="type">{{beer.beer_type }}/{{ beer.filtering_type }}</span>
-                            <span class="price-line"><span class="price">{{ beer.price }}</span>&#8381;</span>
+                            <span class="price-line"><span class="price">{{ beer.price }}</span>pуб</span>
 
                             <div class="quantity-input">
                                 <span class="decrease quantity-btn">-</span>
-                                <input price="{{ beer.price }}" class="number" type="number" 
+                                <input price="{{ beer.price }}" class="number" type="number"
                                         step="1" value="1" max="15" onkeypress="return false">
+                                <span class="unit">л</span>
                                 <span class="increase quantity-btn">+</span>
-                                <button product-type="beer" product-id="{{ beer.id }}" 
+                                <button product-type="beer" product-id="{{ beer.id }}"
                                     url="{% url 'add-item' %}" class='to-cart'>
-                                    <img class="cart-icon" src="{% static "img/shopping-cart-black-shape.svg" %}" alt="Иконка корзины для заказа в магазине крафтового и разливного пива с бесплатной доставкой Kraft Lobster" title="Добавить в корзину">
+                                    <img class="cart-icon" src="{% static "img/shopping-cart-black-shape.svg" %}"
+                                         alt="Иконка корзины для заказа в магазине крафтового и разливного пива с бесплатной доставкой Kraft Lobster"
+                                         title="Добавить в корзину">
                                 </button>
                             </div>
                         </div>
@@ -56,34 +62,37 @@
             <div class="products">
                 {% for snack in products %}
                     <div class="product">
-                        <a class='product-link' href="{% url 'snack_detail' snack.id %}">
+                        <a class='product-link' href="{{ snack.get_absolute_url }}">
                             <div class="product-image">
                                 {% if snack.best_seller == True %}
-                                    <span class="best-badge">Хит</span>
+                                    <span class="best-badge">
+                                        <img class="badge-img" src="{% static 'img/fire-symbol.svg' %}" alt="">
+                                        Хит
+                                    </span>
                                 {% endif %}
                                 <img class="img-fluid" src="{{ snack.image.url }}"
                                      alt="Купить {{ snack.name }}. Закуска к разливному пиву с доставкой в Казани">
                             </div>
                             <div class="product-caption">
                                 <span class="name">{{ snack.name }}</span>
-                                <span class="price-line"><span class="price">{{ snack.price }}</span>&#8381;</span>
+                                <span class="price-line"><span class="price">{{ snack.price }}</span>руб</span>
                                 <div class="quantity-input">
-                                {% if snack.packing == True %}
+                                {% if snack.packed == True %}
                                     <span class="decrease quantity-btn">-</span>
-                                    <input price="{{ snack.price }}" class="weight" type="number" 
+                                    <input price="{{ snack.price }}" class="weight" type="number"
                                             step="100" value="100" min="100" max="1500" onkeypress="return false">
+                                    <span class="unit">гр</span>
                                     <span class="increase quantity-btn">+</span>
-                                    <span>гр</span>
                                 {% else %}
                                     <span class="decrease quantity-btn">-</span>
-                                    <input price="{{ snack.price }}" class="number" type="number" 
+                                    <input price="{{ snack.price }}" class="number" type="number"
                                             step="1" value="1" max="15" onkeypress="return false">
+                                    <span class="unit">шт</span>
                                     <span class="increase quantity-btn">+</span>
-                                    <span>шт</span>                  
                                 {% endif %}
-                                    <button product-type="snack" product-id='{{ snack.id }}' 
+                                    <button product-type="snack" product-id='{{ snack.id }}'
                                 url="{% url 'add-item' %}" class='to-cart'>
-                                        <img class='cart-icon' src="{% static "img/shopping-cart-black-shape.svg" %}" 
+                                        <img class='cart-icon' src="{% static "img/shopping-cart-black-shape.svg" %}"
                                         alt="Иконка корзины для заказа в магазине крафтового и разливного пива с бесплатной доставкой Kraft Lobster"
                                         title="Добавить в корзину">
                                     </button>

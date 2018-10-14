@@ -17,13 +17,21 @@
 
 .product{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: rgb(255, 252, 255);
 }
 
 .product-link, .product-link:hover{
     text-decoration: none;
 }
+
 .product-image{
     position: relative;
+}
+
+.badge-img{
+    height: 16px;
 }
 
 .best-badge{
@@ -32,7 +40,7 @@
 
     padding: 0.2rem 1rem;
 
-    font-family: Bebas_reg;
+    font-family: Bebas_reg, sans-serif;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -44,34 +52,37 @@
 }
 
 .product-caption{
-    padding: 0.5rem;
-
+    padding: 1rem;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-
-    border-radius: 3px;
+    align-items: flex-start;
 }
 
 .product .name{
-    font-family: 'Neris_semibold';
-    font-size: 1.1rem;
+    font-family: 'Neris_semibold', sans-serif;
+    font-size: 0.8rem;
 
-    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.5rem;
+    text-transform: uppercase;
+
+    color: #050505;
 }
 
 .product .type{
-    font-family: 'Roboto_Slab';
-    font-size: 0.8rem;
+    font-family: 'Roboto_Slab', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.04rem;
+    text-transform: lowercase;
 
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .product .price-line{
     color: rgba(221, 68, 92, 0.9);
-    font-weight: 600;
+    font-family: 'Neris_semibold', sans-serif;
+    font-size: 0.8rem;
     line-height: 2rem;
 }
 
@@ -79,12 +90,12 @@
     width: 100%;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .quantity-btn{
-    height: 2rem;
-    width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
 
     display: flex;
     justify-content: center;
@@ -98,27 +109,57 @@
 
 .quantity-input input{
     width: 3rem;
-    height: 2rem;
+    height: 1.5rem;
 
-    border-radius: 3px;
+    margin-left: 0.3rem;
+
+    font-family: Neris_semibold, serif;
+    font-size: 0.7rem;
+
+    border-radius: 3px 0 0 3px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: none;
 
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.4);
 
     text-align: center;
+}
+
+.unit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 0.3rem;
+    padding: 0 0.3rem;
+    height: 1.5rem;
+
+    border-radius: 0 3px 3px 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    font-family: 'Neris_semibold', sans-serif;
+    font-size: 0.8rem;
+
+    background-color: rgba(0, 0, 0, 0.11);
+    color: rgba(0, 0, 0, 0.39);
 }
 
 .quantity-input button{
     margin-left: 1rem;
 
-    background-color: rgba(221, 68, 92, 0.9);
+    height: 1.5rem;
 
-    border: none;
+    cursor: pointer;
+
+    border: 0;
+    border-radius: 3px;
+
+    background-color: rgba(221, 68, 92, 0.9);
 }
 
 .cart-icon{
-    height: 20px;
-} 
+    height: 16px;
+}
 
 .footer{
     padding: 3rem 0;
