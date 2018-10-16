@@ -21,32 +21,33 @@
                 <span class="name">{{ product.name }} ({{ product.fortress }}%)</span>
                 <span class="type">{{ product.beer_type }}/ {{ product.filtering_type }}</span>
                 <span class="country">{{ product.country }} {{ product.brewery }}</span>
-                <span class>{{ product.density }}</span>
             {% else %}
-                <span>{{ product.name }}</span>
+                <span class="name">{{ product.name }}</span>
+                <span class="type">Категория</span>
             {% endif %}
-            <form class="volume" action="{% url 'add-item' %}" target-id="{{ product.id }}" target-type="{{ type }}">
-                {% csrf_token %}
-                <div>
-                    <span> - </span>
-                    {% if type == 'beer' %}
-                        <input class="number-field"  type="number" step="1" value="1">
-                        <span> + </span>
-                        <span>л</span>
+            <div class="quantity-input">
+                <span class="decrease quantity-btn">-</span>
+                {% if type == 'beer' %}
+                        <input price="{{ product.price }}" class="number" type="number"
+                                    step="1" value="1" max="15" onkeypress="return false">
+                        <span class="unit">л</span>
                     {% elif type == 'snack' and product.packing == False %}
-                        <input class="number-field"  type="number" step="1" value="1">
-                        <span> + </span>
-                        <span>шт</span>
+                        <input price="{{ product.price }}" class="number" type="number"
+                                    step="1" value="1" max="15" onkeypress="return false">"1" value="1">
+                        <span class="unit">шт</span>
                     {% else %}
-                        <input class="number-field"  type="number" step="100" value="100">
-                        <span> + </span>
-                        <span>гр</span>
+                        <input price="{{ snack.price }}" class="weight" type="number"
+                                    step="100" value="100" min="100" max="1500" onkeypress="return false">
+                        <span class="unit">гр</span>
                     {% endif %}
-
-                </div>
-                <input type="submit" class="cart-btn">
-            </form>
-
+                <span class="increase quantity-btn">+</span>
+                <button product-type="beer" product-id="{{ beer.id }}"
+                        url="{% url 'add-item' %}" class='to-cart'>
+                    <img class="cart-icon" src="{% static "img/shopping-cart-black-shape.svg" %}"
+                         alt="Иконка корзины для заказа в магазине крафтового и разливного пива с бесплатной доставкой Kraft Lobster"
+                         title="Добавить в корзину">
+                </button>
+            </div>
             <p>{{ product.description }}</p>
         </div>
     </section>

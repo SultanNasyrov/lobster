@@ -208,3 +208,22 @@ html{
     background-color: rgba(221, 68, 92, 0.9);
     color: white;
 }
+
+/* =============== FOOTER =============== */
+.footer{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    padding: 3rem;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+
+}
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

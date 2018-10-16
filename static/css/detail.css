@@ -3,6 +3,7 @@
 
     padding: 1rem 3rem;
     display: grid;
+    grid-gap: 1rem;
     grid-template-columns: repeat(5, 1fr);
 
     margin-top: 70px;
@@ -10,6 +11,8 @@
 
 .image-container{
     grid-column: span 2;
+
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .description-container{
@@ -18,20 +21,99 @@
     flex-direction: column;
 }
 
-.footer{
-    padding: 3rem 0;
+.name{
+    font-family: 'Bebas_bold', sans-serif;
+    font-size: 3rem;
+
+    color: #050505;
+}
+
+.type{
+    font-family: 'Roboto_Slab', serif;
+    font-size: 1rem;
+
+    color: rgba(0, 0, 0, 0.31);
+}
+
+.country{
+    font-family: 'Roboto_Slab', serif;
+    font-size: 1rem;
+
+    color: rgba(0, 0, 0, 0.31);
+}
+.quantity-input{
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+}
+
+.quantity-btn{
+    height: 1.5rem;
+    width: 1.5rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
+
+    border-radius: 3px;
+
+    background-color: rgba(0, 0, 0, 0.2);
     color: white;
 }
 
-.footer-colomn{
-    flex-basis: 30%;
+.quantity-input input{
+    width: 3rem;
+    height: 1.5rem;
+
+    margin-left: 0.3rem;
+
+    font-family: Neris_semibold, serif;
+    font-size: 0.7rem;
+
+    border-radius: 3px 0 0 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: none;
+
+    color: rgba(0, 0, 0, 0.4);
+
+    text-align: center;
+}
+
+.unit{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    margin-right: 0.3rem;
+    padding: 0 0.3rem;
+    height: 1.5rem;
+
+    border-radius: 0 3px 3px 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    font-family: 'Neris_semibold', sans-serif;
+    font-size: 0.8rem;
+
+    background-color: rgba(0, 0, 0, 0.11);
+    color: rgba(0, 0, 0, 0.39);
 }
+
+.quantity-input button{
+    margin-left: 1rem;
+
+    height: 1.5rem;
+
+    cursor: pointer;
+
+    border: 0;
+    border-radius: 3px;
+
+    background-color: rgba(221, 68, 92, 0.9);
+}
+
+.cart-icon{
+    height: 16px;
+}
+
 

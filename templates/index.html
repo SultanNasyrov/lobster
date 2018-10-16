@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-TODO manage all colours
+<!--
+    TODO manage all colours
+    TODO make footer
+    TODO find cart design
+    TODO make buttons for beer and snack pages
+-->
 
 {% block title %}
     <title>{{ seo.index_title }}</title>
@@ -32,6 +37,23 @@ TODO manage all colours
     </div>
     <div class="text">
         <h2 class="tagline">{{ info.tagline }}</h2>
+    </div>
+</section>
+
+<section class="combos">
+    <div class="section-header">
+        <h2>Комбо наборы</h2>
+    </div>
+    <div class="combos-container">
+        {% for combo in combos %}
+            <div class="combo">
+                <img src="{{ combo.image.url }}" alt="">
+                <span>{{ combo.name }}</span>
+                <span>{{ combo.ingredients }}</span>
+                <span>{{ combo.price }} руб</span>
+            </div>
+        {% endfor %}
+
     </div>
 </section>
 
@@ -76,23 +98,6 @@ TODO manage all colours
             </div>
         {% endfor %}
         
-    </div>
-</section>
-    
-<section class="combos">
-    <div class="section-header">
-        <h2>Комбо наборы</h2>
-    </div>
-    <div class="combos-container">
-        {% for combo in combos %}
-            <div class="combo">
-                <img src="{{ combo.image.url }}" alt="">
-                <span>{{ combo.name }}</span>
-                <span>{{ combo.ingredients }}</span>
-                <span>{{ combo.price }} руб</span>
-            </div>
-        {% endfor %}
-
     </div>
 </section>
 

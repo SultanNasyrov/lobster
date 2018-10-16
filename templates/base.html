@@ -119,23 +119,11 @@
 
 {% block footer %}
     <section class="footer">
-        <div class="footer-colomn">
-            <span>something</span>
-            <span>something</span>
-            <span>something</span>
-            <span>something</span>
-        </div>
-        <div class="footer-colomn">
-            <span>something</span>
-            <span>something</span>
-            <span>something</span>
-            <span>something</span>
-        </div>
-        <div class="footer-colomn">
-            <span>something</span>
-            <span>something</span>
-            <span>something</span>
-            <span>something</span>
+        <div class="contacts">
+            <span>Адрес: {{ info.address }}</span>
+            <span>Номер телефона: {{ info.phone_number }}</span>
+            <span>Почта: {{ info.email }}</span>
+            <span>Часы работа: 10:00 - 24:00</span>
         </div>
     </section>
 

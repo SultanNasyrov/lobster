@@ -39,16 +39,6 @@ def snacks_page(request):
     return render(request, 'catalog.html', context)
 
 
-def delivery(request):
-    """Delivery info page view function returns rendered delivery template"""
-    return render(request, 'delivery.html')
-
-
-def about(request):
-    """About us page function returns rendered about template"""
-    return render(request, 'about.html')
-
-
 def beer_detail(request, id):
     """Returns rendered beer page. If beer is not found raises 404"""
     type = 'beer'
@@ -69,4 +59,14 @@ def snack_detail(request, id):
         'product': product,
     }
     return render(request, 'detail.html', context)
+
+
+def delivery(request):
+    """Delivery info page view function returns rendered delivery template"""
+    return render(request, 'delivery.html')
+
+
+def about(request):
+    """About us page function returns rendered about template"""
+    return render(request, 'about.html')
 

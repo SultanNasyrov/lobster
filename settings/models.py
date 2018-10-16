@@ -15,6 +15,7 @@ class SiteInfo(models.Model):
     tagline_2 = models.CharField(max_length=500, verbose_name='Заголовок(h2)', default='')
     banner = models.ImageField(upload_to='main/', verbose_name='Баннер', default='')
     phone_number = models.CharField(max_length=20, default='', verbose_name='Номер телефона')
+    email = models.EmailField(default='', verbose_name='Электронная почта')
     address = models.CharField(max_length=500, default='', verbose_name='Адрес')
     insta_link = models.URLField(default='', verbose_name='Ссылка на инстаграм')
     map = models.TextField(default='', verbose_name='Html код карты(embed)')
